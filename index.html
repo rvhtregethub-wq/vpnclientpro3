@@ -1,219 +1,53 @@
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071426">
-<title>VPNCLIENTPRO3 | پنل سرورها</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090806"><title>VPNCLIENTPRO3 | پنل طلایی</title>
 <style>
-:root{color-scheme:dark;--bg:#071426;--panel:#10233d;--line:#29496b;--blue:#087df0;--cyan:#19c7d8;--muted:#a9bfd7}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#123e68 0,#071426 58%);font-family:Tahoma,Arial,sans-serif;color:#f4f8ff}
-.wrap{max-width:1100px;margin:auto;padding:18px}
-.hero{text-align:center;padding:28px 14px 22px;border:1px solid #28669a;border-radius:24px;background:linear-gradient(135deg,#12365b,#0a192d);box-shadow:0 12px 38px #001020}
-.brand{font-size:clamp(25px,5vw,42px);font-weight:900;letter-spacing:1px}
-.sub{color:#c2dcf4;margin-top:10px}
-.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.chip{border:1px solid #315b80;border-radius:30px;padding:7px 12px;color:#d9edff;font-size:13px}
-.toolbar{display:grid;grid-template-columns:1fr 210px;gap:10px;margin:18px 0 12px}
-.toolbar input,.toolbar select{min-width:0;padding:13px;border:1px solid var(--line);border-radius:12px;background:#0b1a2e;color:white;font:inherit}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 18px}
-.btn{border:0;border-radius:11px;padding:11px 15px;background:linear-gradient(135deg,#0879ef,#13b7ce);color:white;font-weight:bold;font:inherit;cursor:pointer}
-.btn.secondary{background:#1a3452;border:1px solid #355a7e}
-.btn:active{transform:scale(.98)}
-.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:12px}
-.server{border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,#112945,#0b192c);padding:14px;min-width:0}
-.top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.name{font-weight:bold;line-height:1.8;overflow-wrap:anywhere}
-.meta{color:var(--muted);font-size:12px;margin:6px 0 10px;direction:ltr;text-align:right;overflow-wrap:anywhere}
-.server .btn{padding:8px 12px;font-size:13px}
-.count{color:#b8d1e9;margin:8px 2px 14px;font-size:14px}
-.notice{padding:18px;text-align:center;color:#c5d9ed;border:1px dashed #426384;border-radius:14px;line-height:2}
-.foot{text-align:center;color:#9bb2d0;font-size:12px;padding:24px 0 8px;line-height:2}
-.foot a{color:#6dd9ff;text-decoration:none}
-@media(max-width:560px){.wrap{padding:12px}.toolbar{grid-template-columns:1fr}.hero{padding:22px 10px}}
-</style>
-</head>
-<body>
-<main class="wrap">
-<header class="hero">
-  <div class="brand">🚀 VPNCLIENTPRO3</div>
-  <div class="sub">پنل مدیریت و دریافت کانفیگ‌های سرور</div>
-  <div class="chips">
-    <span class="chip">🌍 سرورهای چند کشور</span>
-    <span class="chip">⚡ کپی سریع</span>
-    <span class="chip">📥 دانلود TXT</span>
-  </div>
-</header>
-
-<section class="toolbar">
-  <input id="search" type="search" placeholder="🔎 جستجوی کشور، نام یا آدرس سرور...">
-  <select id="country"><option value="">همه کشورها</option></select>
-</section>
-
-<div class="actions">
-  <button class="btn" id="copyAll">📋 کپی همه کانفیگ‌ها</button>
-  <button class="btn secondary" id="copySub">🔗 کپی لینک اشتراک</button>
-  <button class="btn secondary" id="download">📥 دانلود فایل TXT</button>
-</div>
-
-<div class="count" id="count">در حال دریافت سرورها...</div>
-<section class="list" id="list"><div class="notice">لطفاً کمی صبر کنید...</div></section>
-
-<footer class="foot">
-  کانال پشتیبانی: <a href="https://t.me/vpnclientpro3" target="_blank" rel="noopener">@vpnclientpro3</a><br>
-  VPNCLIENTPRO3 · به‌روزرسانی خودکار از فایل اشتراک
-</footer>
+:root{color-scheme:dark;--gold:#d8bd70;--light:#f7e5a5;--muted:#b9ae95}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,#51401c,#211a0d 34%,#090806 76%);font-family:Tahoma,Arial,sans-serif;color:#f8f4e9}
+.wrap{max-width:1050px;margin:auto;padding:14px}.glow{position:relative;isolation:isolate;overflow:hidden;border:1px solid #806c3d;border-radius:23px;background:linear-gradient(145deg,#211c12,#100e0a 62%,#211a0d);box-shadow:0 12px 35px #0009,inset 0 0 25px #e7c96a0b}
+.glow:before,.server:before{content:"";position:absolute;inset:-2px;border-radius:inherit;padding:2px;background:conic-gradient(from 0deg,transparent 0 22%,#fff0b5 27%,#b58d37 32%,transparent 40% 58%,#fff0b5 64%,#9f792d 70%,transparent 78%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:orbit 5s linear infinite;pointer-events:none}
+@keyframes orbit{to{transform:rotate(360deg)}}.hero{text-align:center;padding:24px 14px;margin-bottom:15px}.brand{font-size:clamp(25px,5vw,40px);font-weight:900;color:#fff7df;text-shadow:0 0 20px #d8bd7055}.sub{color:#d5c69f;margin-top:9px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 16px;border:1px solid #397c60;border-radius:30px;background:#10291e;color:#73e0b2;font-size:13px}.dot{width:8px;height:8px;border-radius:50%;background:#59dba5;box-shadow:0 0 12px #59dba5}
+.account{padding:18px;margin-bottom:15px}.accountrow{display:grid;grid-template-columns:145px 1fr;gap:18px;align-items:center}.ringbox{height:140px;display:grid;place-items:center;position:relative}.ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(#fff1ad,#9a762e,#3a2b10,#f1d78d);animation:spin 4s linear infinite;filter:drop-shadow(0 0 13px #d8bd7066);position:relative}.ring:before{content:"";position:absolute;inset:10px;border-radius:50%;background:#1b170e;border:1px solid #9a814a}.ring:after{content:"";position:absolute;inset:1px;border-radius:50%;border:2px dashed #fff0b4}@keyframes spin{to{transform:rotate(360deg)}}
+.ringtext{position:absolute;z-index:1;text-align:center;color:#f8e6ad;font-size:31px;font-weight:900}.ringtext small{display:block;font-size:11px;color:#c5b68f;font-weight:normal;margin-top:4px}.muted{color:var(--muted);font-size:13px;margin-bottom:8px}.unlimited{font-size:clamp(27px,6vw,43px);font-weight:900;direction:ltr;text-align:right;color:#fff4d4;text-shadow:0 0 18px #d8bd7044}.pill{display:inline-block;margin-top:10px;padding:7px 15px;border-radius:30px;border:1px solid #498c6b;color:#72e0b0;background:#10291e;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.stat{padding:13px;border:1px solid #51452b;border-radius:15px;background:#0d0b08a8}.stat span{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.stat strong{font-size:17px}
+.apps{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}.app{flex:1;min-width:190px;text-align:center;text-decoration:none;padding:13px 15px;border-radius:14px;border:1px solid #927a43;color:#fff0c2;background:linear-gradient(120deg,#59451f,#211a0d);font-weight:bold}
+.toolbar{display:grid;grid-template-columns:1fr 210px;gap:10px;margin:16px 0 12px}.toolbar input,.toolbar select{min-width:0;padding:13px;border:1px solid #6c5a35;border-radius:12px;background:#100e0a;color:#fff4d7;font:inherit}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0 16px}.btn{border:1px solid #aa8d4a;border-radius:12px;padding:11px 15px;background:linear-gradient(120deg,#8b6b2d,#d0b266);color:#171107;font-weight:bold;font:inherit;cursor:pointer}.btn.secondary{background:#211b10;color:#efdda9;border-color:#66532e}.btn:active{transform:scale(.98)}
+.count{color:#d6c89f;margin:8px 2px 14px;font-size:14px}.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:13px}
+.server{position:relative;isolation:isolate;overflow:hidden;border:1px solid #746039;border-radius:17px;background:linear-gradient(145deg,#282114,#100e0a 65%,#211a0e);padding:15px;min-width:0;box-shadow:0 8px 22px #0006}.server:before{inset:-1px;padding:1.5px;animation-duration:7s}
+.name{font-weight:bold;line-height:1.9;overflow-wrap:anywhere;color:#fff2cf}.meta{color:#b9ad91;font-size:11px;margin:7px 0 11px;direction:ltr;text-align:left;overflow-wrap:anywhere}.server .btn{padding:8px 13px;font-size:13px}
+.notice{padding:18px;text-align:center;color:#c8bb9c;border:1px dashed #8a7341;border-radius:14px;line-height:2;background:#17130c}.foot{text-align:center;color:#a89b7b;font-size:12px;padding:22px 0 8px;line-height:2}.foot a{color:#f0d58b;text-decoration:none}
+@media(max-width:560px){.wrap{padding:11px}.hero{padding:21px 10px}.toolbar{grid-template-columns:1fr}.accountrow{grid-template-columns:105px 1fr;gap:8px}.ringbox{height:112px}.ring{width:94px;height:94px}.ringtext{font-size:25px}.unlimited{font-size:25px}.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:span 2}}
+@media(prefers-reduced-motion:reduce){.ring,.glow:before,.server:before{animation:none}}
+</style></head>
+<body><main class="wrap">
+<header class="hero glow"><div class="brand">👑 VPNCLIENTPRO3</div><div class="sub">پنل اختصاصی سرورهای پرسرعت</div><div class="status"><i class="dot"></i> سرویس فعال</div></header>
+<section class="account glow"><div class="accountrow"><div class="ringbox"><div class="ring"></div><div class="ringtext">∞<small>نامحدود</small></div></div><div><div class="muted">حجم اشتراک</div><div class="unlimited">UNLIMITED GB</div><div class="pill">● وضعیت: فعال</div></div></div>
+<div class="stats"><div class="stat"><span>مجموع سرورها</span><strong id="totalStat">—</strong></div><div class="stat"><span>نوع اشتراک</span><strong>نامحدود</strong></div><div class="stat"><span>وضعیت سرویس</span><strong style="color:#70dcae">فعال</strong></div></div></section>
+<nav class="apps"><a class="app" href="https://t.me/vpnAndroid_2/1274?single" target="_blank" rel="noopener">📲 دانلود V2RayNG</a><a class="app" href="https://t.me/vpnAndroid_2/1252?single" target="_blank" rel="noopener">📲 دانلود Hiddify</a></nav>
+<section class="toolbar"><input id="search" type="search" placeholder="🔎 جستجوی کشور، نام یا آدرس سرور..."><select id="country"><option value="">همه کشورها</option></select></section>
+<div class="actions"><button class="btn" id="copyAll">📋 کپی همه کانفیگ‌ها</button><button class="btn secondary" id="copySub">🔗 کپی لینک اشتراک</button><button class="btn secondary" id="download">📥 دانلود فایل TXT</button></div>
+<div class="count" id="count">در حال دریافت سرورها...</div><section class="list" id="list"><div class="notice">لطفاً صبر کنید...</div></section>
+<footer class="foot">کانال پشتیبانی: <a href="https://t.me/vpnclientpro3" target="_blank" rel="noopener">@vpnclientpro3</a><br>VPNCLIENTPRO3 · به‌روزرسانی خودکار از فایل اشتراک</footer>
 </main>
-
 <script>
 "use strict";
-const SUB_URL = new URL("subscription.txt", location.href).href;
-let servers = [];
-const $ = id => document.getElementById(id);
-
-function decodeBase64(text) {
-  const raw = atob(text.trim());
-  const bytes = Uint8Array.from(raw, c => c.charCodeAt(0));
-  return new TextDecoder().decode(bytes);
-}
-
-function getLabel(uri) {
-  try {
-    return decodeURIComponent((uri.split("#")[1] || "").replace(/\+/g, "%20"));
-  } catch {
-    return uri.split("#")[1] || "سرور بدون نام";
-  }
-}
-
-function getCountry(label) {
-  const parts = label.split("|").map(x => x.trim());
-  if (parts.length >= 2) {
-    const persian = parts.find(x => /[\u0600-\u06FF]/.test(x) && !x.includes("@"));
-    if (persian) return persian;
-    return parts[1];
-  }
-  return "نامشخص";
-}
-
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, c => ({
-    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-  }[c]));
-}
-
-function filteredServers() {
-  const q = $("search").value.trim().toLowerCase();
-  const country = $("country").value;
-  return servers.filter(s =>
-    (!country || s.country === country) &&
-    (!q || (s.label + " " + s.uri).toLowerCase().includes(q))
-  );
-}
-
-function render() {
-  const rows = filteredServers();
-  $("count").textContent = "نمایش " + rows.length + " از " + servers.length + " سرور";
-  $("list").innerHTML = rows.length
-    ? rows.map(s => `
-      <article class="server">
-        <div class="top"><div class="name">${escapeHtml(s.label)}</div></div>
-        <div class="meta">${escapeHtml(s.uri.slice(0,95))}${s.uri.length > 95 ? "…" : ""}</div>
-        <button class="btn" data-copy="${s.index}">📋 کپی کانفیگ</button>
-      </article>`).join("")
-    : '<div class="notice">موردی پیدا نشد.</div>';
-}
-
-async function copyText(value) {
-  try {
-    await navigator.clipboard.writeText(value);
-    return true;
-  } catch {
-    const area = document.createElement("textarea");
-    area.value = value;
-    area.style.position = "fixed";
-    area.style.opacity = "0";
-    document.body.appendChild(area);
-    area.select();
-    const ok = document.execCommand("copy");
-    area.remove();
-    return ok;
-  }
-}
-
-async function loadServers() {
-  try {
-    const response = await fetch(SUB_URL + "?v=" + Date.now(), {cache:"no-store"});
-    if (!response.ok) throw new Error("HTTP " + response.status);
-    const encoded = (await response.text()).replace(/\s/g, "");
-    const decoded = decodeBase64(encoded);
-
-    servers = decoded.split(/\r?\n/)
-      .map(line => line.trim())
-      .filter(line => /^(vless|vmess|trojan|ss|hy2|hysteria2|tuic):\/\//i.test(line))
-      .map((uri, index) => {
-        const label = getLabel(uri);
-        return {uri, label, country:getCountry(label), index};
-      });
-
-    const countries = [...new Set(servers.map(s => s.country))]
-      .sort((a,b) => a.localeCompare(b, "fa"));
-
-    $("country").innerHTML = '<option value="">همه کشورها</option>' +
-      countries.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
-
-    if (!servers.length) throw new Error("هیچ کانفیگ معتبری در فایل اشتراک پیدا نشد.");
-    render();
-  } catch (error) {
-    $("count").textContent = "خطا در دریافت اطلاعات";
-    $("list").innerHTML = `<div class="notice">
-      فایل subscription.txt دریافت نشد یا قالب آن معتبر نیست.<br>
-      ${escapeHtml(error.message)}<br>
-      بررسی کنید فایل subscription.txt در شاخه اصلی مخزن باشد.
-    </div>`;
-  }
-}
-
-$("search").addEventListener("input", render);
-$("country").addEventListener("change", render);
-
-$("list").addEventListener("click", async event => {
-  const button = event.target.closest("[data-copy]");
-  if (!button) return;
-  const server = servers.find(s => s.index === Number(button.dataset.copy));
-  if (!server) return;
-  const ok = await copyText(server.uri);
-  button.textContent = ok ? "✓ کپی شد" : "کپی ناموفق";
-  setTimeout(() => button.textContent = "📋 کپی کانفیگ", 1500);
-});
-
-$("copyAll").addEventListener("click", async () => {
-  if (!servers.length) return;
-  const ok = await copyText(servers.map(s => s.uri).join("\n"));
-  $("copyAll").textContent = ok ? "✓ همه کپی شدند" : "کپی ناموفق";
-  setTimeout(() => $("copyAll").textContent = "📋 کپی همه کانفیگ‌ها", 1600);
-});
-
-$("copySub").addEventListener("click", async () => {
-  const ok = await copyText(SUB_URL);
-  $("copySub").textContent = ok ? "✓ لینک کپی شد" : "کپی ناموفق";
-  setTimeout(() => $("copySub").textContent = "🔗 کپی لینک اشتراک", 1600);
-});
-
-$("download").addEventListener("click", () => {
-  const content = servers.map(s => s.uri).join("\n") + "\n";
-  const blob = new Blob([content], {type:"text/plain;charset=utf-8"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "VPNCLIENTPRO3-servers.txt";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-});
-
+const SUB_URL=new URL("subscription.txt",location.href).href;let servers=[];const $=id=>document.getElementById(id);
+function decodeBase64(text){const raw=atob(text.trim());const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
+function getLabel(uri){try{return decodeURIComponent((uri.split("#")[1]||"").replace(/\\+/g,"%20"))}catch{return uri.split("#")[1]||"سرور بدون نام"}}
+function getCountry(label){const parts=label.split("|").map(x=>x.trim());if(parts.length>=2){const persian=parts.find(x=>/[\\u0600-\\u06FF]/.test(x)&&!x.includes("@"));if(persian)return persian;return parts[1]}return "نامشخص"}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function filteredServers(){const q=$("search").value.trim().toLowerCase(),country=$("country").value;return servers.filter(s=>(!country||s.country===country)&&(!q||(s.label+" "+s.uri).toLowerCase().includes(q)))}
+function render(){const rows=filteredServers();$("count").textContent="نمایش "+rows.length+" از "+servers.length+" سرور";$("list").innerHTML=rows.length?rows.map(s=>`<article class="server"><div class="name">🌍 ${escapeHtml(s.label)}</div><div class="meta">${escapeHtml(s.uri.slice(0,95))}${s.uri.length>95?"…":""}</div><button class="btn" data-copy="${s.index}">📋 کپی کانفیگ</button></article>`).join(""):'<div class="notice">موردی پیدا نشد.</div>'}
+async function copyText(value){try{await navigator.clipboard.writeText(value);return true}catch{const area=document.createElement("textarea");area.value=value;area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();const ok=document.execCommand("copy");area.remove();return ok}}
+async function loadServers(){try{const response=await fetch(SUB_URL+"?v="+Date.now(),{cache:"no-store"});if(!response.ok)throw new Error("HTTP "+response.status);const encoded=(await response.text()).replace(/\\s/g,"");const decoded=decodeBase64(encoded);servers=decoded.split(/\\r?\\n/).map(line=>line.trim()).filter(line=>/^(vless|vmess|trojan|ss|hy2|hysteria2|tuic):\\/\\//i.test(line)).map((uri,index)=>{const label=getLabel(uri);return{uri,label,country:getCountry(label),index}});const countries=[...new Set(servers.map(s=>s.country))].sort((a,b)=>a.localeCompare(b,"fa"));$("country").innerHTML='<option value="">همه کشورها</option>'+countries.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");if(!servers.length)throw new Error("هیچ کانفیگ معتبری در فایل اشتراک پیدا نشد.");$("totalStat").textContent=servers.length+" سرور";render()}catch(error){$("count").textContent="خطا در دریافت اطلاعات";$("list").innerHTML=`<div class="notice">فایل subscription.txt دریافت نشد یا قالب آن معتبر نیست.<br>${escapeHtml(error.message)}<br>فایل اشتراک را در شاخه اصلی مخزن بررسی کنید.</div>`}}
+$("search").addEventListener("input",render);$("country").addEventListener("change",render);
+$("list").addEventListener("click",async event=>{const button=event.target.closest("[data-copy]");if(!button)return;const server=servers.find(s=>s.index===Number(button.dataset.copy));if(!server)return;const ok=await copyText(server.uri);button.textContent=ok?"✓ کپی شد":"کپی ناموفق";setTimeout(()=>button.textContent="📋 کپی کانفیگ",1500)});
+$("copyAll").addEventListener("click",async()=>{if(!servers.length)return;const ok=await copyText(servers.map(s=>s.uri).join("\\n"));$("copyAll").textContent=ok?"✓ همه کپی شدند":"کپی ناموفق";setTimeout(()=>$("copyAll").textContent="📋 کپی همه کانفیگ‌ها",1600)});
+$("copySub").addEventListener("click",async()=>{const ok=await copyText(SUB_URL);$("copySub").textContent=ok?"✓ لینک کپی شد":"کپی ناموفق";setTimeout(()=>$("copySub").textContent="🔗 کپی لینک اشتراک",1600)});
+$("download").addEventListener("click",()=>{const content=servers.map(s=>s.uri).join("\\n")+"\\n";const blob=new Blob([content],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="VPNCLIENTPRO3-servers.txt";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)});
 loadServers();
-</script>
-</body>
-</html>
+</script></body></html>
